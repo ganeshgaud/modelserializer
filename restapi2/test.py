@@ -30,8 +30,28 @@ def put_resource(id):
     'sname':'Pranav',
     'saddr':'Hyderabad'
     }
-    resp=requests.get(BASE_URL+ENDPOINT,data=json.dumps(d))
+    resp=requests.put(BASE_URL+ENDPOINT,data=json.dumps(d))
     print(resp.status_code)
     print(resp.json())
 
-put_resource(5)
+def post_resource():
+    d={
+    'srno':105,
+    'sname':'Ganesh',
+    'saddr':'Hyderabad',
+    'smarks':65
+    }
+    resp=requests.post(BASE_URL+ENDPOINT,data=json.dumps(d))
+    print(resp.status_code)
+    print(resp.json())
+
+def delete_resource(id):
+    d={
+    'id':id
+    }
+    resp=requests.delete(BASE_URL+ENDPOINT,data=json.dumps(d))
+    print(resp.status_code)
+    print(resp.json())
+
+
+delete_resource(3)
